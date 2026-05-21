@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+  <defs>
+    <linearGradient id="gp-tipar-4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34495e" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#34495e" stop-opacity="0.45"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#gp-tipar-4)"/>
+  <rect x="40" y="40" width="80" height="80" rx="12" fill="#fff" fill-opacity="0.18"/>
+  <text x="80" y="100" font-family="Inter, system-ui, sans-serif" font-size="44" font-weight="800"
+        fill="#fff" text-anchor="middle">4</text>
+  <text x="300" y="235" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700"
+        fill="#fff" text-anchor="middle" letter-spacing="-1">FOTO</text>
+  <text x="300" y="285" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500"
+        fill="#fff" fill-opacity="0.9" text-anchor="middle">model #4</text>
+</svg>
