@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
   <defs>
     <linearGradient id="gp-perne-1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#9b59b6" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#9b59b6" stop-opacity="0.45"/>
+      <stop offset="0%" stop-color="#0078B0" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0078B0" stop-opacity="0.45"/>
     </linearGradient>
   </defs>
   <rect width="600" height="450" fill="url(#gp-perne-1)"/>

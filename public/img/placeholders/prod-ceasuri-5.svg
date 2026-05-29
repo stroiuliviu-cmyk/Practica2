@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
   <defs>
     <linearGradient id="gp-ceasuri-5" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1abc9c" stop-opacity="1.1"/>
-      <stop offset="100%" stop-color="#1abc9c" stop-opacity="0.45"/>
+      <stop offset="0%" stop-color="#5B5B5D" stop-opacity="1.1"/>
+      <stop offset="100%" stop-color="#5B5B5D" stop-opacity="0.45"/>
     </linearGradient>
   </defs>
   <rect width="600" height="450" fill="url(#gp-ceasuri-5)"/>

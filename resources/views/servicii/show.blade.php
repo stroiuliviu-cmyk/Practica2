@@ -26,6 +26,26 @@
                 <h2 class="text-start">Produse disponibile</h2>
             </div>
 
+            {{-- Filtru sortare --}}
+            <div class="filter-bar d-flex flex-wrap align-items-center gap-3">
+                <label for="sort" class="mb-0">
+                    <i class="bi bi-funnel me-1" aria-hidden="true"></i>
+                    Sortează după:
+                </label>
+                <form method="GET" action="{{ route('servicii.show', $categorie->slug) }}" class="d-flex">
+                    <select name="sort"
+                            id="sort"
+                            class="form-select form-select-sm"
+                            onchange="this.form.submit()">
+                        <option value="default" {{ ($sortBy ?? 'default') === 'default' ? 'selected' : '' }}>Implicit</option>
+                        <option value="pret_asc" {{ ($sortBy ?? '') === 'pret_asc' ? 'selected' : '' }}>Preț crescător</option>
+                        <option value="pret_desc" {{ ($sortBy ?? '') === 'pret_desc' ? 'selected' : '' }}>Preț descrescător</option>
+                        <option value="nume_asc" {{ ($sortBy ?? '') === 'nume_asc' ? 'selected' : '' }}>Denumire A–Z</option>
+                    </select>
+                </form>
+                <span class="text-muted small ms-auto">{{ $produse->count() }} produse</span>
+            </div>
+
             <div class="row g-4">
                 @forelse($produse as $produs)
                     <div class="col-12 col-md-6 col-lg-4">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Contacte')
-@section('description', 'Contactează echipa FotoMoments — telefon, email, adresă în Chișinău, program de lucru. Formular online pentru cereri de ofertă.')
+@section('description', 'Contactează echipa Infinity SRL — telefon, email, adresă în Chișinău, program de lucru. Formular online pentru cereri de ofertă.')
 
 @section('content')
     <section class="categorie-hero">

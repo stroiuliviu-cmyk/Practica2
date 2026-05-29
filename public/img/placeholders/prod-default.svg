@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
-  <rect width="800" height="600" fill="#e0e0e0"/>
+  <rect width="800" height="600" fill="#e4ebf0"/>
   <text x="400" y="310" font-family="Inter, sans-serif" font-size="32" font-weight="600"
-        fill="#888" text-anchor="middle">Imagine indisponibilă</text>
+        fill="#5B5B5D" text-anchor="middle">Imagine indisponibilă</text>
 </svg>

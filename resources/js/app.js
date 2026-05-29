@@ -53,4 +53,58 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
         }
     });
+
+    // 5. Buton back-to-top — apare la scroll > 400 px
+    const btnBackToTop = document.querySelector('#btnBackToTop');
+    if (btnBackToTop) {
+        const toggleVisibility = () => {
+            if (window.scrollY > 400) {
+                btnBackToTop.classList.add('show');
+            } else {
+                btnBackToTop.classList.remove('show');
+            }
+        };
+        window.addEventListener('scroll', toggleVisibility, { passive: true });
+        btnBackToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // 6. Animații simple la scroll — elemente cu data-reveal apar treptat
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
+    } else {
+        // Fallback: arată toate elementele direct dacă browserul nu suportă
+        document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+    }
+
+    // 7. Lightbox pentru galerie (folosește modal Bootstrap)
+    const lightboxModal = document.querySelector('#lightboxModal');
+    if (lightboxModal) {
+        const imgEl = lightboxModal.querySelector('#lightboxImage');
+        const titleEl = lightboxModal.querySelector('#lightboxLabel');
+        const descEl = lightboxModal.querySelector('#lightboxDescription');
+        const catEl = lightboxModal.querySelector('#lightboxCategorie');
+
+        lightboxModal.addEventListener('show.bs.modal', (event) => {
+            const trigger = event.relatedTarget;
+            if (!trigger) return;
+            imgEl.src = trigger.dataset.image ?? '';
+            imgEl.alt = trigger.dataset.title ?? '';
+            titleEl.textContent = trigger.dataset.title ?? 'Vizualizare lucrare';
+            descEl.textContent = trigger.dataset.description ?? '';
+            const catText = trigger.dataset.categorie ?? '';
+            catEl.textContent = catText;
+            catEl.style.display = catText ? 'inline-block' : 'none';
+        });
+    }
 });

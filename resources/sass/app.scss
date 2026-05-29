@@ -6,17 +6,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 // 2. Override variabile Bootstrap (înainte de import-ul Bootstrap)
-$primary:        #e91e63; // magenta — culoarea principală a brandului
-$secondary:      #2c3e50; // gri închis — pentru titluri și texte secundare
+// Paleta brandului Infinity SRL — preluată din logo-ul oficial
+$primary:        #008DD2; // albastru Infinity — culoarea principală a brandului
+$secondary:      #5B5B5D; // gri închis Infinity — pentru titluri și texte secundare
 $success:        #2ecc71;
-$info:           #3498db;
+$info:           #00aef0; // variantă mai deschisă a albastrului brand
 $warning:        #f1c40f;
 $danger:         #e74c3c;
-$light:          #fafafa;
-$dark:           #1a1a2e;
+$light:          #f7f9fb;
+$dark:           #2a2a2c;
 
-$body-bg:        #fafafa;
-$body-color:     #2c3e50;
+$body-bg:        #f7f9fb;
+$body-color:     #3a3a3c;
 
 $font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 $headings-font-weight: 700;
@@ -72,14 +73,21 @@ main {
 }
 
 .navbar-brand {
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: $primary !important;
-    letter-spacing: -0.02em;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
 }
 
-.navbar-brand i {
-    margin-right: 0.4rem;
+.navbar-brand .brand-logo {
+    height: 38px;
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 575.98px) {
+    .navbar-brand .brand-logo {
+        height: 32px;
+    }
 }
 
 .navbar-nav .nav-link {
@@ -504,6 +512,13 @@ main {
     margin-top: 5rem;
 }
 
+.footer-logo {
+    height: 44px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+}
+
 .footer-fotomoments h5 {
     color: #fff;
     font-weight: 700;
@@ -619,6 +634,255 @@ section {
 .alert {
     border-radius: $border-radius;
     border: none;
+}
+
+// ----- Back to top button -----
+.btn-back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, $primary 0%, lighten($primary, 12%) 100%);
+    color: #fff;
+    font-size: 1.4rem;
+    box-shadow: 0 6px 18px rgba($primary, 0.4);
+    z-index: 1030;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-back-to-top:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+
+.btn-back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+// ----- Search bar (navbar) -----
+.navbar-nav form[role="search"] .form-control {
+    min-width: 180px;
+    border-radius: $border-radius;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav form[role="search"] {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .navbar-nav form[role="search"] .form-control {
+        min-width: 0;
+        flex: 1;
+    }
+}
+
+// ----- Filtre sortare -----
+.filter-bar {
+    background-color: #fff;
+    border-radius: $border-radius-lg;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 2rem;
+}
+
+.filter-bar .form-select {
+    max-width: 240px;
+}
+
+// ----- Animații scroll reveal -----
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// Variante de direcție
+[data-reveal="left"] { transform: translateX(-24px); }
+[data-reveal="left"].is-visible { transform: translateX(0); }
+
+[data-reveal="right"] { transform: translateX(24px); }
+[data-reveal="right"].is-visible { transform: translateX(0); }
+
+// ----- Carousel hero (home) -----
+.hero-carousel {
+    border-radius: $border-radius-xl;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.hero-carousel .carousel-item {
+    min-height: 360px;
+    background-size: cover;
+    background-position: center;
+    background-color: $secondary;
+}
+
+.hero-carousel .carousel-caption {
+    background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem 1rem 3rem;
+}
+
+.hero-carousel .carousel-caption h3 {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+// ----- Newsletter form -----
+.newsletter-form .form-control {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+.newsletter-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.newsletter-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: lighten($primary, 10%);
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+}
+
+// ----- Galerie (lightbox simplu) -----
+.galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.galerie-item {
+    aspect-ratio: 1 / 1;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    background-color: #f0f0f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.galerie-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.galerie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.galerie-item .galerie-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba($primary, 0.85);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    padding: 1rem;
+    text-align: center;
+}
+
+.galerie-item:hover .galerie-overlay {
+    opacity: 1;
+}
+
+.galerie-item .galerie-overlay i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+// ----- Admin panel -----
+.admin-sidebar {
+    background-color: $secondary;
+    color: #fff;
+    min-height: calc(100vh - 70px);
+    padding: 1.5rem 0;
+}
+
+.admin-sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.75rem 1.5rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.admin-sidebar .nav-link:hover,
+.admin-sidebar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-left-color: $primary;
+}
+
+.admin-sidebar .nav-link i {
+    margin-right: 0.5rem;
+    width: 18px;
+    text-align: center;
+}
+
+.admin-content {
+    padding: 2rem;
+}
+
+.admin-stat-card {
+    background-color: #fff;
+    border-radius: $border-radius-lg;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid $primary;
+}
+
+.admin-stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: $secondary;
+    line-height: 1;
+}
+
+.admin-stat-card .stat-label {
+    color: lighten($secondary, 20%);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    margin-top: 0.5rem;
+}
+
+.admin-table th {
+    background-color: lighten($secondary, 55%);
+    font-weight: 600;
+    color: $secondary;
+}
+
+.admin-table tbody tr:hover {
+    background-color: rgba($primary, 0.04);
+}
+
+.admin-actions .btn {
+    padding: 0.25rem 0.5rem;
 }
 
 // ----- Responsive helpers -----

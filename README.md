@@ -144,18 +144,40 @@ php artisan migrate:fresh --seed
 
 ## Pagini funcționale
 
+### Site public
+
 | Ruta | Metodă | Conținut |
 |---|---|---|
-| `/` | GET | Pagina principală — hero, beneficii, 8 categorii din DB, proces, CTA |
+| `/` | GET | Pagina principală — hero, carousel, beneficii, 8 categorii din DB, proces, CTA |
 | `/despre` | GET | Despre noi — istoric, echipă, valori |
 | `/servicii` | GET | Listă cu toate cele 8 categorii |
-| `/servicii/{slug}` | GET | Detaliu categorie cu cele 6 produse din DB |
+| `/servicii/{slug}` | GET | Detaliu categorie cu cele 6 produse din DB + sortare (preț/nume) |
+| `/galerie` | GET | Galeria lucrărilor realizate + filtre + lightbox modal |
+| `/cautare?q=...` | GET | Căutare produse după denumire/descriere |
 | `/contacte` | GET | Date contact + formular |
 | `/contacte` | POST | Validare + salvare mesaj în `mesaje_contact` |
+| `/newsletter` | POST | Subscriere newsletter (formular din footer) |
+
+### Autentificare & panou admin
+
+| Ruta | Metodă | Conținut |
+|---|---|---|
+| `/login` | GET / POST | Formular login admin |
+| `/logout` | POST | Distruge sesiunea |
+| `/admin` | GET | Dashboard cu statistici |
+| `/admin/categorii` | GET + CRUD | CRUD complet categorii |
+| `/admin/produse` | GET + CRUD | CRUD complet produse (cu paginare + filtru categorie) |
+| `/admin/galerie` | GET + CRUD | CRUD lucrări galerie |
+| `/admin/mesaje` | GET + delete | Vizualizare mesaje contact (cu marcare citit) |
+| `/admin/newsletter` | GET + delete | Listă abonați newsletter |
+
+**Credențiale demo admin:** `admin@infinity.local` / `admin1234`
 
 ## Documentația proiectului
 
-Toate documentele de planificare (AS1–AS9 din curriculum) se află în folderul [docs/](docs/):
+Toate documentele de planificare și dezvoltare se află în folderul [docs/](docs/):
+
+**Planificare (AS1–AS9, săptămânile 1–2):**
 
 1. [docs/01-unitatea-economica.md](docs/01-unitatea-economica.md) — Descrierea unității economice
 2. [docs/02-obiectivele-siteului.md](docs/02-obiectivele-siteului.md) — Obiectivele site-ului
@@ -166,38 +188,47 @@ Toate documentele de planificare (AS1–AS9 din curriculum) se află în folderu
 7. [docs/07-specificatii-tehnice.md](docs/07-specificatii-tehnice.md) — Specificații tehnice
 8. [docs/08-arhitectura-bazei-de-date.md](docs/08-arhitectura-bazei-de-date.md) — Arhitectura bazei de date
 
+**Dezvoltare faza 2 (AS11–AS17, săptămâna 3):**
+
+9. [docs/09-elemente-navigare.md](docs/09-elemente-navigare.md) — Elemente de navigare (AS11)
+10. [docs/10-grafica-multimedia.md](docs/10-grafica-multimedia.md) — Zone grafice și multimedia (AS12-AS13)
+11. [docs/11-formulare-autentificare.md](docs/11-formulare-autentificare.md) — Formulare dinamice și autentificare (AS14-AS15)
+12. [docs/12-panou-administrativ.md](docs/12-panou-administrativ.md) — Panou administrativ CRUD (AS16-AS17)
+
 ## Stadiul curent
 
-**Prototip funcțional Laravel — săptămânile 1-2 (AS1–AS10)**
+**Prototip funcțional Laravel — săptămânile 1-3 (AS1–AS17)**
 
 Implementat:
-- ✅ Documentație completă de planificare (8 fișiere `docs/`)
-- ✅ Schema bazei de date prin migrate-uri Laravel
-- ✅ Catalog dinamic (categorii + produse) populat prin seedere
-- ✅ 5 pagini publice cu Blade + Bootstrap 5
-- ✅ Navbar și footer dinamic (categorii citite din DB)
-- ✅ Formular de contact cu validare client + server și salvare în DB
+- ✅ Documentație completă de planificare (12 fișiere `docs/`)
+- ✅ Schema BD prin 8 migrate-uri Laravel
+- ✅ Catalog dinamic populat prin seedere (8 categorii + 48 produse + 12 lucrări galerie + 2 useri)
+- ✅ 8 pagini publice (home, despre, servicii index/show, galerie, căutare, contacte, login)
+- ✅ Navbar dinamic + dropdown servicii + bară căutare + footer cu newsletter
+- ✅ Formular de contact + formular newsletter (cu validare client + server)
+- ✅ Autentificare admin (custom, middleware role admin)
+- ✅ Panou administrativ complet (`/admin`) cu CRUD: categorii, produse, galerie, mesaje, newsletter
+- ✅ Carousel hero + galerie cu lightbox + animații scroll reveal + back-to-top
+- ✅ Sortare/filtrare produse + filtre galerie
 - ✅ Design responsive (375 / 768 / 1200 px)
-- ✅ SVG-uri placeholder generate local pentru toate categoriile și produsele
+- ✅ Branding Infinity SRL (logo SVG, paletă albastru #008DD2 + gri #5B5B5D)
 
-Neimplementat în această etapă (intenționat):
-- ❌ Autentificare utilizatori / panou administrativ
-- ❌ Sistem de comenzi online (coș, plată)
-- ❌ Upload poze de către utilizator
-- ❌ Sistem de notificări email
-- ❌ Testare automatizată (PHPUnit/Pest)
-- ❌ Deploy pe hosting
+Neimplementat în această etapă (intenționat — următoarele săptămâni):
+- ❌ Sistem de comenzi online (coș, plată) — beyond curriculum scope
+- ❌ Upload imagini de către admin (curent: cale text)
+- ❌ Notificări email pentru noile mesaje contact
+- ❌ Testare automatizată (PHPUnit/Pest) — AS18–AS23
+- ❌ Deploy pe hosting — AS26
 
 ## Roadmap următoarele săptămâni
 
-Pentru săptămânile 3–8 ale stagiului de practică (activitățile **AS11–AS28**), planurile includ:
+Pentru săptămânile 4–8 ale stagiului de practică (activitățile **AS18–AS28**):
 
-- **Săpt. 3:** Sistem de autentificare admin (Laravel Breeze) + middleware acces
-- **Săpt. 4:** Panou administrativ — CRUD categorii și produse
-- **Săpt. 5:** Panou administrativ — gestiune mesaje contact + sistem comenzi
-- **Săpt. 6:** Upload imagini reale, înlocuirea SVG-urilor placeholder, optimizare SEO
-- **Săpt. 7:** Testare automatizată (Pest/PHPUnit) + securitate avansată
-- **Săpt. 8:** Deploy pe hosting + documentație finală + prezentare publică
+- **Săpt. 4–5 (AS18–AS23):** Testare interfață + automated tests (Pest), accesibilitate, securitate, încărcare
+- **Săpt. 6 (AS24–AS25):** Mentenanță + adăugare tehnologii noi (sitemap.xml, robots.txt, cache, optimizări SEO)
+- **Săpt. 6 (AS26):** Publicare pe hosting (recomandat: Hetzner / Cloudways / DigitalOcean)
+- **Săpt. 7 (AS27):** Elaborarea raportului final de practică
+- **Săpt. 8 (AS28):** Susținerea raportului în fața comisiei
 
 ## Autor
 

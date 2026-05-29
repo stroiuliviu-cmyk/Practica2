@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategoriiSeeder::class,
             ProduseSeeder::class,
+            GalerieSeeder::class,
+            AdminUserSeeder::class,
         ]);
     }
 }

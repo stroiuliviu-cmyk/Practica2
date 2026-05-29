@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title', 'Despre noi')
-@section('description', 'Despre FotoMoments — istoricul firmei, echipa și valorile care ne ghidează din 2006.')
+@section('description', 'Despre Infinity SRL — istoricul firmei, echipa și valorile care ne ghidează din 2006.')
 
 @section('content')
     <section class="categorie-hero">
         <div class="container">
-            <h1>Despre FotoMoments</h1>
+            <h1>Despre Infinity SRL</h1>
             <p>
                 Suntem o echipă pasionată de personalizare, dedicată să transforme amintirile clienților noștri
                 în obiecte unice. Activăm din 2006 în Chișinău.
@@ -24,7 +24,7 @@
                     </div>
 
                     <p>
-                        FotoMoments a luat naștere în anul 2006, în Chișinău, dintr-o idee simplă: oamenii merită cadouri
+                        Infinity SRL a luat naștere în anul 2006, în Chișinău, dintr-o idee simplă: oamenii merită cadouri
                         care să spună o poveste personală. Atunci, un grup mic de pasionați a deschis un atelier modest,
                         echipat cu o singură presă de sublimare termică, și a început să imprime fotografii pe căni
                         ceramice pentru clienții din cartier.
@@ -38,7 +38,7 @@
                     </p>
 
                     <p>
-                        Am crescut împreună cu clienții noștri, învățând din fiecare comandă. Astăzi, FotoMoments este o
+                        Am crescut împreună cu clienții noștri, învățând din fiecare comandă. Astăzi, Infinity SRL este o
                         referință pe piața din Chișinău pentru calitate și rapiditate. Executăm comenzi standard pe loc,
                         în 10–20 de minute, dar și proiecte complexe pentru companii și evenimente — nunți, botezuri,
                         conferințe corporate, materiale promoționale.
@@ -68,7 +68,7 @@
                         <i class="bi bi-person-circle" style="font-size: 7rem; color: #e91e63;" aria-hidden="true"></i>
                         <h3 class="h5 mt-3">Andrei Popescu</h3>
                         <p class="text-muted">Fondator &amp; Director</p>
-                        <p>Pasiunea pentru personalizare l-a determinat să fondeze FotoMoments în 2006.</p>
+                        <p>Pasiunea pentru personalizare l-a determinat să fondeze Infinity SRL în 2006.</p>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">

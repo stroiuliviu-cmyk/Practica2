@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Acasă')
-@section('description', 'FotoMoments — imprimare personalizată pe căni, tricouri, brelocuri, perne, puzzle, ceasuri, farfurii și tipar fotografii. Chișinău, din 2006.')
+@section('description', 'Infinity SRL — imprimare personalizată pe căni, tricouri, brelocuri, perne, puzzle, ceasuri, farfurii și tipar fotografii. Chișinău, din 2006.')
+
+@php
+    $heroSlides = $categorii->take(4);
+@endphp
 
 @section('content')
     {{-- Hero --}}
@@ -14,7 +18,7 @@
                         imprimate pentru totdeauna.
                     </h1>
                     <p class="hero-subtitle">
-                        Transformăm fotografiile, inscripțiile și logo-urile tale în cadouri unice
+                        Infinity SRL transformă fotografiile, inscripțiile și logo-urile tale în cadouri unice
                         — căni, tricouri, brelocuri, perne, puzzle, ceasuri, farfurii și multe altele.
                         Activăm din 2006 în Chișinău și executăm comenzile pe loc, în 10–20 de minute.
                     </p>
@@ -38,16 +42,59 @@
         </div>
     </section>
 
+    {{-- Carousel servicii populare --}}
+    @if($heroSlides->count() > 0)
+        <section class="pt-4 pb-0">
+            <div class="container">
+                <div id="serviciiCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+                    <div class="carousel-indicators">
+                        @foreach($heroSlides as $i => $cat)
+                            <button type="button"
+                                    data-bs-target="#serviciiCarousel"
+                                    data-bs-slide-to="{{ $i }}"
+                                    @class(['active' => $i === 0])
+                                    @if($i === 0) aria-current="true" @endif
+                                    aria-label="Slide {{ $i + 1 }}: {{ $cat->denumire }}"></button>
+                        @endforeach
+                    </div>
+                    <div class="carousel-inner">
+                        @foreach($heroSlides as $i => $cat)
+                            <div @class(['carousel-item', 'active' => $i === 0])
+                                 style="background-image: url('{{ asset($cat->imagine ?? 'img/placeholders/cat-default.svg') }}');">
+                                <div class="carousel-caption">
+                                    <h3>{{ $cat->denumire }}</h3>
+                                    <p class="mb-2">{{ $cat->descriere_scurta }}</p>
+                                    <a href="{{ route('servicii.show', $cat->slug) }}" class="btn btn-light btn-sm">
+                                        Vezi detalii
+                                        <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#serviciiCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#serviciiCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Următor</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    @endif
+
     {{-- Beneficii --}}
     <section id="beneficii">
         <div class="container">
-            <div class="section-title">
-                <h2>De ce să alegi FotoMoments?</h2>
+            <div class="section-title" data-reveal>
+                <h2>De ce să alegi Infinity?</h2>
                 <p>Trei motive solide care ne diferențiază pe piața din Chișinău.</p>
             </div>
 
             <div class="row g-4">
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4" data-reveal>
                     <div class="card-beneficiu">
                         <div class="icon-wrapper">
                             <i class="bi bi-award" aria-hidden="true"></i>
@@ -56,7 +103,7 @@
                         <p>Peste 19 ani de activitate pe piața de imprimare personalizată din Republica Moldova.</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4" data-reveal>
                     <div class="card-beneficiu">
                         <div class="icon-wrapper">
                             <i class="bi bi-lightning-charge" aria-hidden="true"></i>
@@ -65,7 +112,7 @@
                         <p>Comenzile standard sunt gata în 10–20 de minute. Vino, alege, primește.</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4" data-reveal>
                     <div class="card-beneficiu">
                         <div class="icon-wrapper">
                             <i class="bi bi-heart" aria-hidden="true"></i>
@@ -88,7 +135,7 @@
 
             <div class="row g-4">
                 @foreach($categorii as $categorie)
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-3" data-reveal>
                         <article class="card card-serviciu">
                             <img src="{{ asset($categorie->imagine ?? 'img/placeholders/cat-default.svg') }}"
                                  class="card-img-top"

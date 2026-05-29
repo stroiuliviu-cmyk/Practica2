@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
   <defs>
     <linearGradient id="gp-cani-5" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#e91e63" stop-opacity="1.1"/>
-      <stop offset="100%" stop-color="#e91e63" stop-opacity="0.45"/>
+      <stop offset="0%" stop-color="#008DD2" stop-opacity="1.1"/>
+      <stop offset="100%" stop-color="#008DD2" stop-opacity="0.45"/>
     </linearGradient>
   </defs>
   <rect width="600" height="450" fill="url(#gp-cani-5)"/>

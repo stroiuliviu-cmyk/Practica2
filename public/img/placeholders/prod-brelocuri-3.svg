@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
   <defs>
     <linearGradient id="gp-brelocuri-3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f1c40f" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#f1c40f" stop-opacity="0.45"/>
+      <stop offset="0%" stop-color="#005F8C" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#005F8C" stop-opacity="0.45"/>
     </linearGradient>
   </defs>
   <rect width="600" height="450" fill="url(#gp-brelocuri-3)"/>
-  <rect x="40" y="40" width="80" height="80" rx="12" fill="#2c3e50" fill-opacity="0.18"/>
+  <rect x="40" y="40" width="80" height="80" rx="12" fill="#fff" fill-opacity="0.18"/>
   <text x="80" y="100" font-family="Inter, system-ui, sans-serif" font-size="44" font-weight="800"
-        fill="#2c3e50" text-anchor="middle">3</text>
+        fill="#fff" text-anchor="middle">3</text>
   <text x="300" y="235" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700"
-        fill="#2c3e50" text-anchor="middle" letter-spacing="-1">BRELOCURI</text>
+        fill="#fff" text-anchor="middle" letter-spacing="-1">BRELOCURI</text>
   <text x="300" y="285" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500"
-        fill="#2c3e50" fill-opacity="0.9" text-anchor="middle">model #3</text>
+        fill="#fff" fill-opacity="0.9" text-anchor="middle">model #3</text>
 </svg>

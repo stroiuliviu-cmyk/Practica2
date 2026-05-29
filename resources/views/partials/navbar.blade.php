@@ -1,8 +1,10 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-fotomoments sticky-top" aria-label="Meniu principal">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <i class="bi bi-camera-fill" aria-hidden="true"></i>FotoMoments
+            <a class="navbar-brand" href="{{ route('home') }}" aria-label="Infinity — Acasă">
+                <img src="{{ asset('img/logo.svg') }}"
+                     alt="Infinity SRL"
+                     class="brand-logo">
             </a>
 
             <button class="navbar-toggler" type="button"
@@ -48,16 +50,44 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('galerie.*') ? 'active' : '' }}"
+                           href="{{ route('galerie.index') }}">Galerie</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('contacte.*') ? 'active' : '' }}"
                            href="{{ route('contacte.index') }}">Contacte</a>
                     </li>
                     <li class="nav-item ms-lg-3">
+                        <form action="{{ route('servicii.search') }}" method="GET" role="search" class="d-flex">
+                            <input class="form-control form-control-sm me-2"
+                                   type="search"
+                                   name="q"
+                                   placeholder="Caută produs..."
+                                   aria-label="Caută"
+                                   value="{{ request('q') }}"
+                                   minlength="2"
+                                   required>
+                            <button class="btn btn-outline-primary btn-sm" type="submit" aria-label="Caută">
+                                <i class="bi bi-search" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
                         <a class="btn btn-primary btn-sm"
                            href="tel:+37322123456">
                             <i class="bi bi-telephone-fill me-1" aria-hidden="true"></i>
                             +373 22 123 456
                         </a>
                     </li>
+                    @auth
+                        @if(Auth::user()->isAdmin())
+                            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                <a class="btn btn-outline-secondary btn-sm" href="{{ route('admin.dashboard') }}">
+                                    <i class="bi bi-shield-lock me-1" aria-hidden="true"></i>Admin
+                                </a>
+                            </li>
+                        @endif
+                    @endauth
                 </ul>
             </div>
         </div>
