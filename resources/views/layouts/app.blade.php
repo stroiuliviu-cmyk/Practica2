@@ -7,7 +7,62 @@
     <meta name="theme-color" content="#008DD2">
     <title>@yield('title', 'Infinity') — Imprimare personalizată Chișinău</title>
 
+    {{-- Open Graph (Facebook, LinkedIn, etc.) --}}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Infinity SRL">
+    <meta property="og:locale" content="ro_RO">
+    <meta property="og:title" content="@yield('title', 'Infinity') — Imprimare personalizată Chișinău">
+    <meta property="og:description" content="@yield('description', 'Infinity SRL — imprimare personalizată pe căni, tricouri, brelocuri și multe altele.')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="@yield('title', 'Infinity') — Imprimare personalizată Chișinău">
+    <meta name="twitter:description" content="@yield('description', 'Infinity SRL — imprimare personalizată pe căni, tricouri, brelocuri și multe altele.')">
+
+    {{-- Canonical URL --}}
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    {{-- Favicon --}}
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }}">
+
+    {{-- JSON-LD structured data (LocalBusiness) — construit ca array PHP pentru a evita conflictul @type cu Blade --}}
+    @php
+        $jsonLd = [
+            '@context' => 'https://schema.org',
+            '@type' => 'LocalBusiness',
+            'name' => 'Infinity SRL',
+            'image' => asset('img/logo.svg'),
+            'url' => url('/'),
+            'telephone' => '+373 22 123 456',
+            'email' => 'contact@fotomoments.local',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => 'Str. Ștefan cel Mare 100',
+                'addressLocality' => 'Chișinău',
+                'addressCountry' => 'MD',
+            ],
+            'openingHoursSpecification' => [
+                [
+                    '@type' => 'OpeningHoursSpecification',
+                    'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                    'opens' => '09:00',
+                    'closes' => '18:00',
+                ],
+                [
+                    '@type' => 'OpeningHoursSpecification',
+                    'dayOfWeek' => 'Saturday',
+                    'opens' => '09:00',
+                    'closes' => '14:00',
+                ],
+            ],
+        ];
+    @endphp
+    <script type="application/ld+json">{!! json_encode($jsonLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @stack('head')
 </head>
 <body>
     @include('partials.navbar')

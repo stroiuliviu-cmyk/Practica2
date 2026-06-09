@@ -28,7 +28,7 @@ class CategorieController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $this->validateData($request);
-        $data['slug'] = $data['slug'] ?: Str::slug($data['denumire']);
+        $data['slug'] = ($data['slug'] ?? null) ?: Str::slug($data['denumire']);
         $data['activ'] = (bool) ($data['activ'] ?? false);
 
         Categorie::create($data);
@@ -45,7 +45,7 @@ class CategorieController extends Controller
     public function update(Request $request, Categorie $categorii): RedirectResponse
     {
         $data = $this->validateData($request, $categorii->id);
-        $data['slug'] = $data['slug'] ?: Str::slug($data['denumire']);
+        $data['slug'] = ($data['slug'] ?? null) ?: Str::slug($data['denumire']);
         $data['activ'] = (bool) ($data['activ'] ?? false);
 
         $categorii->update($data);

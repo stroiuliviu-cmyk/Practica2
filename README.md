@@ -195,15 +195,23 @@ Toate documentele de planificare și dezvoltare se află în folderul [docs/](do
 11. [docs/11-formulare-autentificare.md](docs/11-formulare-autentificare.md) — Formulare dinamice și autentificare (AS14-AS15)
 12. [docs/12-panou-administrativ.md](docs/12-panou-administrativ.md) — Panou administrativ CRUD (AS16-AS17)
 
+**Testare + finalizare (AS18–AS26, săptămânile 4–6):**
+
+13. [docs/13-testare.md](docs/13-testare.md) — Testare automată și manuală (AS18-AS20)
+14. [docs/14-accesibilitate.md](docs/14-accesibilitate.md) — Accesibilitate WCAG 2.1 AA (AS21)
+15. [docs/15-securitate-incarcare.md](docs/15-securitate-incarcare.md) — Securitate și testare la încărcare (AS22-AS23)
+16. [docs/16-mentenanta-tehnologii.md](docs/16-mentenanta-tehnologii.md) — Mentenanță și tehnologii noi (AS24-AS25)
+17. [docs/17-publicare.md](docs/17-publicare.md) — Publicare pe hosting (AS26)
+
 ## Stadiul curent
 
-**Prototip funcțional Laravel — săptămânile 1-3 (AS1–AS17)**
+**Prototip funcțional complet — săptămânile 1-6 (AS1–AS26)**
 
 Implementat:
-- ✅ Documentație completă de planificare (12 fișiere `docs/`)
+- ✅ Documentație completă: 17 fișiere `docs/` (planificare + dezvoltare + testare + publicare)
 - ✅ Schema BD prin 8 migrate-uri Laravel
 - ✅ Catalog dinamic populat prin seedere (8 categorii + 48 produse + 12 lucrări galerie + 2 useri)
-- ✅ 8 pagini publice (home, despre, servicii index/show, galerie, căutare, contacte, login)
+- ✅ 9 pagini publice (home, despre, servicii index/show, galerie, căutare, contacte, login, error pages)
 - ✅ Navbar dinamic + dropdown servicii + bară căutare + footer cu newsletter
 - ✅ Formular de contact + formular newsletter (cu validare client + server)
 - ✅ Autentificare admin (custom, middleware role admin)
@@ -212,23 +220,42 @@ Implementat:
 - ✅ Sortare/filtrare produse + filtre galerie
 - ✅ Design responsive (375 / 768 / 1200 px)
 - ✅ Branding Infinity SRL (logo SVG, paletă albastru #008DD2 + gri #5B5B5D)
+- ✅ **71 teste automate Pest** (rute, formulare, auth, CRUD, securitate, link integrity, modele)
+- ✅ Cache strategic pentru categorii navbar (1h cu auto-invalidate)
+- ✅ Pagini de eroare custom branded (403, 404, 500, 503)
+- ✅ SEO complet: Open Graph, Twitter Card, JSON-LD LocalBusiness, canonical URL
+- ✅ sitemap.xml dinamic + robots.txt configurabil
+- ✅ Ghid deploy complet (Apache + Nginx configs + script automat) + `.env.production.example`
 
-Neimplementat în această etapă (intenționat — următoarele săptămâni):
-- ❌ Sistem de comenzi online (coș, plată) — beyond curriculum scope
-- ❌ Upload imagini de către admin (curent: cale text)
-- ❌ Notificări email pentru noile mesaje contact
-- ❌ Testare automatizată (PHPUnit/Pest) — AS18–AS23
-- ❌ Deploy pe hosting — AS26
+Neimplementat (intenționat — pentru evoluție viitoare):
+- ❌ Sistem de comenzi online (coș, plată)
+- ❌ Upload imagini real în admin (curent: cale text)
+- ❌ Notificări email pentru mesaje noi
+- ❌ PWA (service worker + manifest)
+- ❌ Multilingv (ro / ru / en)
 
-## Roadmap următoarele săptămâni
+## Rulare teste
 
-Pentru săptămânile 4–8 ale stagiului de practică (activitățile **AS18–AS28**):
+```bash
+./vendor/bin/pest                                # toate cele 71 teste
+./vendor/bin/pest tests/Feature/SecurityTest.php # doar securitate
+./vendor/bin/pest --filter="contact form"        # doar testele de contact
+```
 
-- **Săpt. 4–5 (AS18–AS23):** Testare interfață + automated tests (Pest), accesibilitate, securitate, încărcare
-- **Săpt. 6 (AS24–AS25):** Mentenanță + adăugare tehnologii noi (sitemap.xml, robots.txt, cache, optimizări SEO)
-- **Săpt. 6 (AS26):** Publicare pe hosting (recomandat: Hetzner / Cloudways / DigitalOcean)
-- **Săpt. 7 (AS27):** Elaborarea raportului final de practică
+## Deploy pe producție
+
+Vezi [docs/17-publicare.md](docs/17-publicare.md) pentru ghid complet. Scriptul automat:
+
+```bash
+bash deploy/deploy.sh
+```
+
+## Roadmap final
+
+- **Săpt. 7 (AS27):** Elaborarea raportului de stagiu (Word document conform Anexa 1+2 din curriculum)
 - **Săpt. 8 (AS28):** Susținerea raportului în fața comisiei
+
+Aplicația web este **completă funcțional pentru AS1-AS26**. Raportul Word (AS27-AS28) este responsabilitatea elevului.
 
 ## Autor
 
