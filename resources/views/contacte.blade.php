@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Contacte')
-@section('description', 'Contactează echipa Infinity SRL — telefon, email, adresă în Chișinău, program de lucru. Formular online pentru cereri de ofertă.')
+@section('description', 'Contactează echipa Infinity SRL — telefon, email, adresă în Cahul, program de lucru. Formular online pentru cereri de ofertă.')
 
 @section('content')
     <section class="categorie-hero">
@@ -39,7 +39,7 @@
                             <i class="bi bi-telephone-fill" aria-hidden="true"></i>
                             <div class="text">
                                 <strong>Telefon</strong>
-                                <a href="tel:+37322123456" class="text-white">+373 22 123 456</a>
+                                <a href="tel:+37329912345" class="text-white">+373 299 12 345</a>
                             </div>
                         </div>
 
@@ -47,7 +47,7 @@
                             <i class="bi bi-envelope-fill" aria-hidden="true"></i>
                             <div class="text">
                                 <strong>Email</strong>
-                                <a href="mailto:contact@fotomoments.local" class="text-white">contact@fotomoments.local</a>
+                                <a href="mailto:contact@infinity.md" class="text-white">contact@infinity.md</a>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@
                             <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
                             <div class="text">
                                 <strong>Adresă</strong>
-                                Str. Ștefan cel Mare 100, Chișinău, Republica Moldova
+                                Str. Independenței 10, Cahul, Republica Moldova
                             </div>
                         </div>
 
@@ -170,8 +170,8 @@
             {{-- Hartă placeholder --}}
             <div class="harta-placeholder mt-5">
                 <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
-                <h3 class="h5">Hartă — Chișinău</h3>
-                <p class="mb-0">Str. Ștefan cel Mare 100, Chișinău, Republica Moldova</p>
+                <h3 class="h5">Hartă — Cahul</h3>
+                <p class="mb-0">Str. Independenței 10, Cahul, Republica Moldova</p>
                 <small class="text-muted">(în viitor: hartă interactivă Google Maps)</small>
             </div>
         </div>

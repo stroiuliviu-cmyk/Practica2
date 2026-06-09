@@ -1,26 +1,30 @@
 @extends('layouts.app')
 
 @section('title', 'Acasă')
-@section('description', 'Infinity SRL — imprimare personalizată pe căni, tricouri, brelocuri, perne, puzzle, ceasuri, farfurii și tipar fotografii. Chișinău, din 2006.')
+@section('description', 'Infinity SRL — imprimare personalizată pe căni, tricouri, brelocuri, perne, puzzle, ceasuri, farfurii și tipar fotografii. Cahul, din 2006.')
 
 @php
     $heroSlides = $categorii->take(4);
 @endphp
 
 @section('content')
-    {{-- Hero --}}
+    {{-- Hero — gradient + blob + stacked product images + trust strip --}}
     <section class="hero">
         <div class="container">
             <div class="row align-items-center g-4">
                 <div class="col-lg-7">
+                    <span class="badge rounded-pill text-bg-light mb-2"
+                          style="background: var(--color-accent-tint) !important; color: var(--color-accent) !important; padding: 0.4rem 0.8rem; font-weight: 500;">
+                        <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i>Cahul · din 2006
+                    </span>
                     <h1 class="hero-title">
-                        Momentele tale prețioase, <br>
+                        Momentele tale prețioase,<br>
                         imprimate pentru totdeauna.
                     </h1>
                     <p class="hero-subtitle">
-                        Infinity SRL transformă fotografiile, inscripțiile și logo-urile tale în cadouri unice
-                        — căni, tricouri, brelocuri, perne, puzzle, ceasuri, farfurii și multe altele.
-                        Activăm din 2006 în Chișinău și executăm comenzile pe loc, în 10–20 de minute.
+                        Transformăm fotografiile, inscripțiile și logo-urile tale în cadouri unice —
+                        căni, tricouri, brelocuri, perne, puzzle, ceasuri și farfurii.
+                        Executăm comenzile pe loc, în 10–20 de minute.
                     </p>
                     <div class="hero-buttons d-flex flex-wrap gap-3">
                         <a href="{{ route('servicii.index') }}" class="btn btn-primary btn-lg">
@@ -32,10 +36,21 @@
                             Contactează-ne
                         </a>
                     </div>
+                    <div class="hero-trust">
+                        <span><strong>19+</strong> ani experiență</span>
+                        <span><strong>8</strong> categorii produse</span>
+                        <span><strong>10–20</strong> min execuție</span>
+                    </div>
                 </div>
                 <div class="col-lg-5 d-none d-lg-block">
-                    <div class="hero-image text-center">
-                        <i class="bi bi-camera-reels" style="font-size: 14rem; color: rgba(233, 30, 99, 0.4);" aria-hidden="true"></i>
+                    <div class="hero-art">
+                        <div class="hero-blob"></div>
+                        <img src="{{ asset('img/placeholders/prod-cani-2.svg') }}"
+                             alt="Cană personalizată"
+                             class="hero-img hero-img--1">
+                        <img src="{{ asset('img/placeholders/cat-tricouri-maiouri.svg') }}"
+                             alt="Tricou personalizat"
+                             class="hero-img hero-img--2">
                     </div>
                 </div>
             </div>
@@ -90,7 +105,7 @@
         <div class="container">
             <div class="section-title" data-reveal>
                 <h2>De ce să alegi Infinity?</h2>
-                <p>Trei motive solide care ne diferențiază pe piața din Chișinău.</p>
+                <p>Trei motive solide care ne diferențiază pe piața din Cahul.</p>
             </div>
 
             <div class="row g-4">
@@ -205,8 +220,8 @@
                 <h2>Ai nevoie de un cadou personalizat?</h2>
                 <p class="mb-3">Sună-ne acum sau trimite-ne un mesaj — îți răspundem rapid!</p>
                 <div class="telefon">
-                    <a href="tel:+37322123456">
-                        <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>+373 22 123 456
+                    <a href="tel:+37329912345">
+                        <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>+373 299 12 345
                     </a>
                 </div>
                 <a href="{{ route('contacte.index') }}" class="btn btn-light btn-lg">

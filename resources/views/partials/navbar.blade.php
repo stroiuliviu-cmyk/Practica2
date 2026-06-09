@@ -74,9 +74,9 @@
                     </li>
                     <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
                         <a class="btn btn-primary btn-sm"
-                           href="tel:+37322123456">
+                           href="tel:+37329912345">
                             <i class="bi bi-telephone-fill me-1" aria-hidden="true"></i>
-                            +373 22 123 456
+                            +373 299 12 345
                         </a>
                     </li>
                     @auth

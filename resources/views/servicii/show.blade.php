@@ -160,7 +160,7 @@
                         </li>
                         <li class="list-group-item bg-transparent">
                             <i class="bi bi-truck text-primary me-2" aria-hidden="true"></i>
-                            <strong>Livrare:</strong> ridicare din atelier sau curier în Chișinău.
+                            <strong>Livrare:</strong> ridicare din atelier sau curier în Cahul.
                         </li>
                     </ul>
                 </div>

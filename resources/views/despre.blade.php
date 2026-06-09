@@ -9,8 +9,28 @@
             <h1>Despre Infinity SRL</h1>
             <p>
                 Suntem o echipă pasionată de personalizare, dedicată să transforme amintirile clienților noștri
-                în obiecte unice. Activăm din 2006 în Chișinău.
+                în obiecte unice. Activăm din 2006 în Cahul.
             </p>
+
+            {{-- Stats row — 4 indicatori cheie --}}
+            <div class="stats-row">
+                <div>
+                    <strong>19+</strong>
+                    <span>Ani experiență</span>
+                </div>
+                <div>
+                    <strong>8</strong>
+                    <span>Categorii produse</span>
+                </div>
+                <div>
+                    <strong>10–20</strong>
+                    <span>Minute execuție</span>
+                </div>
+                <div>
+                    <strong>100%</strong>
+                    <span>Personalizat</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -24,7 +44,7 @@
                     </div>
 
                     <p>
-                        Infinity SRL a luat naștere în anul 2006, în Chișinău, dintr-o idee simplă: oamenii merită cadouri
+                        Infinity SRL a luat naștere în anul 2006, în Cahul, dintr-o idee simplă: oamenii merită cadouri
                         care să spună o poveste personală. Atunci, un grup mic de pasionați a deschis un atelier modest,
                         echipat cu o singură presă de sublimare termică, și a început să imprime fotografii pe căni
                         ceramice pentru clienții din cartier.
@@ -39,7 +59,7 @@
 
                     <p>
                         Am crescut împreună cu clienții noștri, învățând din fiecare comandă. Astăzi, Infinity SRL este o
-                        referință pe piața din Chișinău pentru calitate și rapiditate. Executăm comenzi standard pe loc,
+                        referință pe piața din Cahul pentru calitate și rapiditate. Executăm comenzi standard pe loc,
                         în 10–20 de minute, dar și proiecte complexe pentru companii și evenimente — nunți, botezuri,
                         conferințe corporate, materiale promoționale.
                     </p>

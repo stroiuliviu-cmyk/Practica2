@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="@yield('description', 'Infinity SRL — imprimare personalizată pe căni, tricouri, brelocuri și multe altele. Chișinău, din 2006.')">
+    <meta name="description" content="@yield('description', 'Infinity SRL — imprimare personalizată pe căni, tricouri, brelocuri și multe altele. Cahul, din 2006.')">
     <meta name="theme-color" content="#008DD2">
-    <title>@yield('title', 'Infinity') — Imprimare personalizată Chișinău</title>
+    <title>@yield('title', 'Infinity') — Imprimare personalizată Cahul</title>
 
     {{-- Open Graph (Facebook, LinkedIn, etc.) --}}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Infinity SRL">
     <meta property="og:locale" content="ro_RO">
-    <meta property="og:title" content="@yield('title', 'Infinity') — Imprimare personalizată Chișinău">
+    <meta property="og:title" content="@yield('title', 'Infinity') — Imprimare personalizată Cahul">
     <meta property="og:description" content="@yield('description', 'Infinity SRL — imprimare personalizată pe căni, tricouri, brelocuri și multe altele.')">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ asset('img/logo.svg') }}">
 
     {{-- Twitter Card --}}
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="@yield('title', 'Infinity') — Imprimare personalizată Chișinău">
+    <meta name="twitter:title" content="@yield('title', 'Infinity') — Imprimare personalizată Cahul">
     <meta name="twitter:description" content="@yield('description', 'Infinity SRL — imprimare personalizată pe căni, tricouri, brelocuri și multe altele.')">
 
     {{-- Canonical URL --}}
     <link rel="canonical" href="{{ url()->current() }}">
 
-    {{-- Favicon --}}
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }}">
+    {{-- Favicon (logo-mark — design system) --}}
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo-mark.svg') }}">
 
     {{-- JSON-LD structured data (LocalBusiness) — construit ca array PHP pentru a evita conflictul @type cu Blade --}}
     @php
@@ -35,12 +35,12 @@
             'name' => 'Infinity SRL',
             'image' => asset('img/logo.svg'),
             'url' => url('/'),
-            'telephone' => '+373 22 123 456',
-            'email' => 'contact@fotomoments.local',
+            'telephone' => '+373 299 12 345',
+            'email' => 'contact@infinity.md',
             'address' => [
                 '@type' => 'PostalAddress',
-                'streetAddress' => 'Str. Ștefan cel Mare 100',
-                'addressLocality' => 'Chișinău',
+                'streetAddress' => 'Str. Independenței 10',
+                'addressLocality' => 'Cahul',
                 'addressCountry' => 'MD',
             ],
             'openingHoursSpecification' => [

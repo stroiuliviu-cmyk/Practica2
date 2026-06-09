@@ -1,75 +1,172 @@
 // =============================================================
-// FotoMoments — fișier principal de stiluri (Bootstrap 5 + custom)
+// Infinity SRL — design system (preluat din Claude Design handoff)
+// Tokens: colors, typography, spacing, shadows, motion
 // =============================================================
 
-// 1. Google Fonts (Inter)
+// ----- Google Fonts -----
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-// 2. Override variabile Bootstrap (înainte de import-ul Bootstrap)
-// Paleta brandului Infinity SRL — preluată din logo-ul oficial
-$primary:        #008DD2; // albastru Infinity — culoarea principală a brandului
-$secondary:      #5B5B5D; // gri închis Infinity — pentru titluri și texte secundare
-$success:        #2ecc71;
-$info:           #00aef0; // variantă mai deschisă a albastrului brand
-$warning:        #f1c40f;
-$danger:         #e74c3c;
-$light:          #f7f9fb;
-$dark:           #2a2a2c;
+// ============================================================
+// 1. Tokens — culori
+// ============================================================
 
-$body-bg:        #f7f9fb;
-$body-color:     #3a3a3c;
+// Brand blue scale
+$blue-50:  #E6F4FB;
+$blue-100: #CCE9F6;
+$blue-200: #99D3ED;
+$blue-300: #66BCE4;
+$blue-400: #33A6DB;
+$blue-500: #008DD2;  // anchor brand
+$blue-600: #0077B6;  // darker (logo loop)
+$blue-700: #005E8F;
+$blue-800: #004566;
+$blue-900: #002C42;
+$cyan-400: #00A8E8;
 
-$font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-$headings-font-weight: 700;
-$headings-color: $secondary;
+// Coral accent (highlight pentru CTA, badges, energy)
+$coral-50:  #FFF1EC;
+$coral-100: #FFE0D6;
+$coral-200: #FFC2AE;
+$coral-300: #FFA585;
+$coral-400: #FF865E;
+$coral-500: #FF6A3D;  // main accent
+$coral-600: #ED5226;
+$coral-700: #C43F18;
+
+// Warm-slate neutrals
+$neutral-0:   #FFFFFF;
+$neutral-50:  #F7F9FB;
+$neutral-100: #EFF2F5;
+$neutral-200: #E2E7EC;
+$neutral-300: #CBD2DA;
+$neutral-400: #9DA4AC;
+$neutral-500: #6E7378;
+$neutral-600: #5B5B5D;  // brand grey
+$neutral-700: #3A3A3C;
+$neutral-800: #2A2A2C;
+$neutral-900: #1A2330;
+
+// Semantic
+$semantic-success: #2ECC71;
+$semantic-success-tint: #E7F9F0;
+$semantic-warning: #F1C40F;
+$semantic-warning-tint: #FEF8E1;
+$semantic-danger:  #E74C3C;
+$semantic-danger-tint: #FDECEA;
+$semantic-info:    #00AEF0;
+
+// Aliases
+$color-brand:        $blue-500;
+$color-brand-dark:   $blue-600;
+$color-brand-darker: $blue-700;
+$color-brand-light:  $blue-300;
+$color-brand-tint:   $blue-50;
+$color-accent:       $coral-500;
+$color-accent-dark:  $coral-600;
+$color-accent-tint:  $coral-50;
+
+// Bootstrap overrides
+$primary:    $color-brand;
+$secondary:  $neutral-600;
+$success:    $semantic-success;
+$info:       $semantic-info;
+$warning:    $semantic-warning;
+$danger:     $semantic-danger;
+$light:      $neutral-50;
+$dark:       $neutral-900;
+$body-bg:    $neutral-50;
+$body-color: $neutral-700;
+
+$font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
+$headings-font-weight: 800;
+$headings-color: $neutral-900;
+$headings-letter-spacing: -0.01em;
 
 $border-radius:    0.5rem;
 $border-radius-sm: 0.375rem;
 $border-radius-lg: 0.75rem;
 $border-radius-xl: 1rem;
+$border-radius-pill: 50rem;
 
 $btn-padding-y:    0.625rem;
 $btn-padding-x:    1.25rem;
 $btn-font-weight:  500;
 
 $navbar-padding-y: 1rem;
-$navbar-brand-font-size: 1.5rem;
 
 $enable-shadows: true;
 $enable-gradients: false;
 
-// 3. Import Bootstrap complet
+// ============================================================
+// 2. Bootstrap + Icons
+// ============================================================
 @import "bootstrap/scss/bootstrap";
-
-// 4. Import Bootstrap Icons
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
-// =============================================================
-// 5. Stiluri custom FotoMoments
-// =============================================================
-
-html {
-    scroll-behavior: smooth;
+// ============================================================
+// 3. CSS custom properties (pentru folosire în Blade direct)
+// ============================================================
+:root {
+    --color-brand:       #{$color-brand};
+    --color-brand-dark:  #{$color-brand-dark};
+    --color-brand-light: #{$color-brand-light};
+    --color-brand-tint:  #{$color-brand-tint};
+    --color-accent:      #{$color-accent};
+    --color-accent-tint: #{$color-accent-tint};
+    --text-heading:      #{$neutral-900};
+    --text-title:        #{$neutral-600};
+    --text-body:         #{$neutral-700};
+    --text-muted:        #{$neutral-500};
+    --surface-card:      #{$neutral-0};
+    --surface-page:      #{$neutral-50};
+    --surface-sunken:    #{$neutral-100};
+    --surface-dark:      #{$neutral-600};
+    --border-subtle:     rgba(0, 0, 0, 0.06);
+    --border-default:    #{$neutral-200};
+    --gradient-hero:     linear-gradient(135deg, #{$blue-50} 0%, #DCF3FC 100%);
+    --gradient-brand:    linear-gradient(135deg, #{$blue-500} 0%, #{$cyan-400} 100%);
+    --gradient-cta:      linear-gradient(135deg, #{$blue-500} 0%, #{$blue-400} 100%);
+    --gradient-accent:   linear-gradient(135deg, #{$coral-500} 0%, #{$coral-400} 100%);
+    --shadow-xs:         0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-sm:         0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md:         0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-lg:         0 12px 28px rgba(0, 0, 0, 0.10);
+    --shadow-xl:         0 16px 40px rgba(0, 0, 0, 0.12);
+    --shadow-brand:      0 4px 12px rgba(0, 141, 210, 0.25);
+    --shadow-brand-lg:   0 12px 32px rgba(0, 141, 210, 0.25);
+    --shadow-brand-hover: 0 6px 16px rgba(0, 141, 210, 0.35);
+    --ease-out:          cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-fast:     0.2s;
+    --duration:          0.25s;
+    --transition:        all 0.25s ease;
+    --transition-fast:   all 0.2s ease;
 }
 
+// ============================================================
+// 4. Base + Typography
+// ============================================================
+html { scroll-behavior: smooth; }
 body {
     font-family: $font-family-sans-serif;
     background-color: $body-bg;
     color: $body-color;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
 
-main {
-    min-height: calc(100vh - 200px);
-}
+h1, h2, h3, h4, h5, h6 { letter-spacing: -0.01em; }
 
-// ----- Navbar -----
+main { min-height: calc(100vh - 200px); }
+
+// ============================================================
+// 5. Navbar
+// ============================================================
 .navbar-fotomoments {
     background-color: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(8px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.2s ease;
+    box-shadow: var(--shadow-xs);
+    min-height: 72px;
 }
 
 .navbar-brand {
@@ -79,32 +176,31 @@ main {
 }
 
 .navbar-brand .brand-logo {
-    height: 38px;
+    height: 34px;
     width: auto;
     display: block;
 }
 
 @media (max-width: 575.98px) {
-    .navbar-brand .brand-logo {
-        height: 32px;
-    }
+    .navbar-brand .brand-logo { height: 30px; }
 }
 
 .navbar-nav .nav-link {
     font-weight: 500;
-    color: $secondary;
-    padding: 0.5rem 1rem !important;
-    transition: color 0.2s ease;
+    color: $neutral-600;
+    padding: 0.5rem 0.9rem !important;
+    border-radius: $border-radius-sm;
+    transition: color var(--duration-fast) ease;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: $primary;
+    color: $color-brand;
 }
 
 .dropdown-menu {
     border: none;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-md);
     border-radius: $border-radius;
     padding: 0.5rem;
 }
@@ -116,26 +212,77 @@ main {
 }
 
 .dropdown-item:hover {
-    background-color: rgba($primary, 0.08);
-    color: $primary;
+    background-color: $color-brand-tint;
+    color: $color-brand;
 }
 
-// ----- Hero -----
+// Search bar din navbar (stil sunken pill)
+.navbar-nav form[role="search"] {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: $neutral-100;
+    border-radius: $border-radius;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-nav form[role="search"] .form-control {
+    border: none;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    font-size: 0.875rem;
+    min-width: 140px;
+    color: $neutral-700;
+    padding: 0.25rem 0.4rem;
+}
+
+.navbar-nav form[role="search"] .form-control:focus {
+    background: transparent;
+    box-shadow: none;
+}
+
+.navbar-nav form[role="search"] .btn {
+    background: transparent;
+    border: none;
+    color: $neutral-400;
+    padding: 0.25rem 0.4rem;
+}
+
+.navbar-nav form[role="search"] .btn:hover {
+    color: $color-brand;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav form[role="search"] {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        background: $neutral-100;
+    }
+    .navbar-nav form[role="search"] .form-control {
+        min-width: 0;
+        flex: 1;
+    }
+}
+
+// ============================================================
+// 6. Hero — gradient + blob + stacked images
+// ============================================================
 .hero {
-    padding: 6rem 0 5rem;
-    background: linear-gradient(135deg, lighten($primary, 35%) 0%, lighten($info, 30%) 100%);
+    background: var(--gradient-hero);
+    padding: 4.5rem 0 4rem;
     position: relative;
     overflow: hidden;
 }
 
 .hero::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    top: -40%;
+    right: -8%;
+    width: 540px;
+    height: 540px;
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -143,18 +290,19 @@ main {
 .hero-title {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: $secondary;
+    color: $neutral-900;
+    letter-spacing: -0.03em;
     line-height: 1.15;
-    margin-bottom: 1.5rem;
+    margin: 1rem 0 1.25rem;
     position: relative;
     z-index: 1;
 }
 
 .hero-subtitle {
     font-size: 1.15rem;
-    color: lighten($secondary, 15%);
-    margin-bottom: 2rem;
-    max-width: 600px;
+    color: $neutral-600;
+    max-width: 33rem;
+    margin-bottom: 1.75rem;
     position: relative;
     z-index: 1;
 }
@@ -162,32 +310,108 @@ main {
 .hero-buttons {
     position: relative;
     z-index: 1;
+    margin-bottom: 2rem;
 }
 
-.hero-image {
+.hero-trust {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
     position: relative;
     z-index: 1;
 }
 
-// ----- Butoane -----
+.hero-trust span {
+    font-size: 0.875rem;
+    color: $neutral-500;
+}
+
+.hero-trust strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $color-brand;
+    line-height: 1;
+}
+
+// Hero art (blob + stacked images)
+.hero-art {
+    position: relative;
+    min-height: 360px;
+}
+
+.hero-blob {
+    position: absolute;
+    inset: 8% 4%;
+    background: var(--gradient-brand);
+    border-radius: 42% 58% 56% 44% / 48% 42% 58% 52%;
+    opacity: 0.14;
+}
+
+.hero-img {
+    position: absolute;
+    border-radius: $border-radius-xl;
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+}
+
+.hero-img--1 {
+    width: 64%;
+    height: 70%;
+    top: 4%;
+    right: 2%;
+    z-index: 2;
+}
+
+.hero-img--2 {
+    width: 52%;
+    height: 56%;
+    bottom: 2%;
+    left: 0;
+    border: 5px solid #fff;
+}
+
+@media (max-width: 767.98px) {
+    .hero { padding: 4rem 0 3rem; text-align: center; }
+    .hero-buttons { display: flex; flex-direction: column; gap: 0.75rem; align-items: stretch; }
+    .hero-art { min-height: 240px; margin-top: 2rem; }
+    .hero-trust { justify-content: center; }
+}
+
+// ============================================================
+// 7. Buttons (lift on hover)
+// ============================================================
 .btn {
     font-weight: 500;
     padding: 0.65rem 1.5rem;
     border-radius: $border-radius;
-    transition: all 0.2s ease;
+    transition: var(--transition);
 }
 
 .btn-primary {
-    box-shadow: 0 4px 12px rgba($primary, 0.25);
+    box-shadow: var(--shadow-brand);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba($primary, 0.35);
+    box-shadow: var(--shadow-brand-hover);
 }
 
 .btn-outline-primary:hover {
     transform: translateY(-2px);
+}
+
+.btn-accent {
+    background: var(--gradient-accent);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 106, 61, 0.28);
+}
+
+.btn-accent:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 106, 61, 0.35);
 }
 
 .btn-lg {
@@ -195,25 +419,58 @@ main {
     font-size: 1.05rem;
 }
 
-// ----- Carduri servicii -----
+// ============================================================
+// 8. Section titles
+// ============================================================
+section { padding: 4rem 0; }
+
+.section-title {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 2.75rem;
+}
+
+.section-title h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: $neutral-900;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+}
+
+.section-title p {
+    font-size: 1.15rem;
+    color: $neutral-500;
+    margin: 0;
+}
+
+.section-title--left {
+    text-align: left;
+    margin-left: 0;
+}
+
+// ============================================================
+// 9. Cards (service, product, beneficiu)
+// ============================================================
 .card-serviciu {
-    border: none;
+    border: 1px solid var(--border-subtle);
     border-radius: $border-radius-lg;
     overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: $neutral-0;
+    transition: var(--transition);
+    box-shadow: var(--shadow-xs);
     height: 100%;
 }
 
 .card-serviciu:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
 }
 
 .card-serviciu .card-img-top {
     height: 220px;
     object-fit: cover;
-    background-color: #f0f0f0;
+    background-color: $neutral-100;
 }
 
 .card-serviciu .card-body {
@@ -223,46 +480,43 @@ main {
 .card-serviciu .card-title {
     font-weight: 700;
     font-size: 1.2rem;
-    color: $secondary;
+    color: $neutral-900;
     margin-bottom: 0.6rem;
 }
 
 .card-serviciu .card-text {
-    color: lighten($secondary, 20%);
+    color: $neutral-500;
     font-size: 0.95rem;
     margin-bottom: 1.25rem;
 }
 
-.card-serviciu .btn {
-    font-size: 0.9rem;
-}
-
-// ----- Carduri beneficii -----
+// Card beneficiu (3 carduri „de ce noi")
 .card-beneficiu {
-    border: none;
+    border: 1px solid var(--border-subtle);
     border-radius: $border-radius-lg;
     padding: 2rem 1.5rem;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    background: $neutral-0;
+    box-shadow: var(--shadow-xs);
     height: 100%;
     text-align: center;
-    transition: transform 0.2s ease;
+    transition: var(--transition);
 }
 
 .card-beneficiu:hover {
     transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 
 .card-beneficiu .icon-wrapper {
     width: 72px;
     height: 72px;
-    background: linear-gradient(135deg, $primary 0%, lighten($primary, 15%) 100%);
+    background: var(--gradient-brand);
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.25rem;
-    box-shadow: 0 4px 12px rgba($primary, 0.25);
+    box-shadow: var(--shadow-brand);
 }
 
 .card-beneficiu .icon-wrapper i {
@@ -273,60 +527,97 @@ main {
 .card-beneficiu h3 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: $secondary;
+    color: $neutral-900;
     margin-bottom: 0.75rem;
 }
 
 .card-beneficiu p {
-    color: lighten($secondary, 20%);
+    color: $neutral-500;
     font-size: 0.95rem;
-    margin-bottom: 0;
+    margin: 0;
 }
 
-// ----- Card produs -----
+// Card produs
 .card-produs {
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-subtle);
     border-radius: $border-radius-lg;
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: var(--transition);
     height: 100%;
-    background-color: #fff;
+    background: $neutral-0;
 }
 
 .card-produs:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-md);
 }
 
 .card-produs .card-img-top {
     height: 200px;
     object-fit: cover;
-    background-color: #f5f5f5;
+    background-color: $neutral-100;
 }
 
-.card-produs .card-body {
-    padding: 1.25rem;
-}
+.card-produs .card-body { padding: 1.25rem; }
 
 .card-produs .pret {
-    color: $primary;
+    color: $color-brand;
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 1rem;
 }
 
-// ----- Secțiune proces -----
+// Card membru echipa
+.card-membru {
+    background: $neutral-0;
+    border: 1px solid var(--border-subtle);
+    border-radius: $border-radius-lg;
+    box-shadow: var(--shadow-sm);
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+}
+
+.card-membru img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    background-color: $neutral-200;
+}
+
+// Card valoare
+.card-valoare {
+    background: $neutral-0;
+    border: 1px solid var(--border-subtle);
+    border-radius: $border-radius-lg;
+    box-shadow: var(--shadow-xs);
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+}
+
+.card-valoare i {
+    font-size: 2.5rem;
+    color: $color-brand;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+// ============================================================
+// 10. Proces
+// ============================================================
 .proces-pas {
     text-align: center;
     padding: 1.5rem 1rem;
-    position: relative;
 }
 
 .proces-pas .numar {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, $primary 0%, lighten($primary, 12%) 100%);
+    background: var(--gradient-brand);
     color: #fff;
     font-size: 1.5rem;
     font-weight: 700;
@@ -334,42 +625,50 @@ main {
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 12px rgba($primary, 0.25);
+    box-shadow: var(--shadow-brand);
 }
 
 .proces-pas h4 {
     font-size: 1.1rem;
     font-weight: 700;
+    color: $neutral-900;
     margin-bottom: 0.5rem;
 }
 
 .proces-pas p {
-    color: lighten($secondary, 20%);
+    color: $neutral-500;
     font-size: 0.95rem;
-    margin-bottom: 0;
+    margin: 0;
 }
 
-// ----- CTA -----
+// ============================================================
+// 11. CTA banner
+// ============================================================
 .cta-banner {
-    background: linear-gradient(135deg, $primary 0%, lighten($primary, 10%) 100%);
+    background: var(--gradient-cta);
     color: #fff;
     border-radius: $border-radius-xl;
     padding: 3rem 2rem;
     text-align: center;
     margin: 4rem 0;
-    box-shadow: 0 12px 32px rgba($primary, 0.25);
+    box-shadow: var(--shadow-brand-lg);
 }
 
 .cta-banner h2 {
     color: #fff;
     font-size: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.cta-banner p {
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1rem;
 }
 
 .cta-banner .telefon {
     font-size: 2.25rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .cta-banner .telefon a {
@@ -378,35 +677,32 @@ main {
 }
 
 .cta-banner .btn-light {
-    color: $primary;
+    color: $color-brand;
     font-weight: 600;
 }
 
-// ----- Breadcrumbs -----
+// ============================================================
+// 12. Breadcrumbs + categorie hero
+// ============================================================
 .breadcrumb {
     background-color: transparent;
-    padding: 1rem 0;
+    padding: 0;
     margin-bottom: 0;
+    font-size: 0.875rem;
 }
 
 .breadcrumb-item a {
-    color: $primary;
+    color: $color-brand;
     text-decoration: none;
     font-weight: 500;
 }
 
-.breadcrumb-item a:hover {
-    text-decoration: underline;
-}
+.breadcrumb-item a:hover { text-decoration: underline; }
+.breadcrumb-item.active { color: $neutral-500; }
 
-.breadcrumb-item.active {
-    color: $secondary;
-}
-
-// ----- Categorie hero -----
 .categorie-hero {
-    background: linear-gradient(135deg, lighten($primary, 38%) 0%, lighten($info, 32%) 100%);
-    padding: 3.5rem 0;
+    background: var(--gradient-hero);
+    padding: 2.75rem 0 3rem;
     border-radius: 0 0 $border-radius-xl $border-radius-xl;
     margin-bottom: 3rem;
 }
@@ -414,49 +710,73 @@ main {
 .categorie-hero h1 {
     font-size: 2.5rem;
     font-weight: 800;
-    color: $secondary;
-    margin-bottom: 1rem;
+    color: $neutral-900;
+    margin: 0.75rem 0;
+    letter-spacing: -0.02em;
 }
 
 .categorie-hero p {
-    font-size: 1.1rem;
-    color: lighten($secondary, 15%);
-    max-width: 700px;
+    font-size: 1.15rem;
+    color: $neutral-600;
+    max-width: 46rem;
+    margin: 0;
 }
 
-// ----- Formular contact -----
-.form-contact {
-    background-color: #fff;
+// Filter bar (pe categorie + galerie)
+.filter-bar {
+    background: $neutral-0;
     border-radius: $border-radius-lg;
-    padding: 2.5rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-xs);
+    padding: 0.9rem 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
+.filter-bar .form-select {
+    max-width: 240px;
+    border-color: var(--border-default);
+}
+
+// ============================================================
+// 13. Formular contact + info card dark
+// ============================================================
+.form-contact {
+    background: $neutral-0;
+    border-radius: $border-radius-lg;
+    padding: 2.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.form-contact h2 {
+    font-size: 1.5rem;
+    margin: 0 0 1.5rem;
 }
 
 .form-contact label {
     font-weight: 500;
-    color: $secondary;
+    color: $neutral-700;
     margin-bottom: 0.4rem;
+    font-size: 0.875rem;
 }
 
 .form-contact .form-control,
 .form-contact .form-select {
     border-radius: $border-radius;
     padding: 0.65rem 1rem;
-    border: 1px solid #e0e0e0;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border-default);
+    transition: var(--transition-fast);
 }
 
 .form-contact .form-control:focus,
 .form-contact .form-select:focus {
-    border-color: $primary;
-    box-shadow: 0 0 0 0.2rem rgba($primary, 0.15);
+    border-color: $color-brand;
+    box-shadow: 0 0 0 0.2rem rgba(0, 141, 210, 0.18);
 }
 
 .contact-info-card {
-    background-color: $secondary;
+    background-color: $neutral-600;
     color: #fff;
     border-radius: $border-radius-lg;
-    padding: 2.5rem;
+    padding: 2.25rem;
     height: 100%;
 }
 
@@ -468,13 +788,13 @@ main {
 .contact-info-card .info-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
+    gap: 1rem;
 }
 
 .contact-info-card .info-item i {
-    font-size: 1.4rem;
-    color: lighten($primary, 15%);
-    margin-right: 1rem;
+    font-size: 1.3rem;
+    color: $blue-300;
     flex-shrink: 0;
 }
 
@@ -485,285 +805,57 @@ main {
 }
 
 .contact-info-card .info-item .text {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.875rem;
+    line-height: 1.5;
 }
 
+.contact-info-card .info-item a {
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+}
+
+.contact-info-card .info-item a:hover { color: #fff; }
+
 .harta-placeholder {
-    background: linear-gradient(135deg, #e0e0e0 0%, #cfcfcf 100%);
+    background: linear-gradient(135deg, $neutral-100 0%, $neutral-200 100%);
     border-radius: $border-radius-lg;
     padding: 4rem 2rem;
     text-align: center;
-    color: $secondary;
+    color: $neutral-700;
     margin-top: 2rem;
 }
 
 .harta-placeholder i {
     font-size: 3rem;
-    color: $primary;
+    color: $color-brand;
     margin-bottom: 1rem;
 }
 
-// ----- Footer -----
-.footer-fotomoments {
-    background-color: $secondary;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 4rem 0 1.5rem;
-    margin-top: 5rem;
-}
-
-.footer-logo {
-    height: 44px;
-    width: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.95;
-}
-
-.footer-fotomoments h5 {
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 1.25rem;
-    font-size: 1.05rem;
-}
-
-.footer-fotomoments a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-fotomoments a:hover {
-    color: lighten($primary, 15%);
-}
-
-.footer-fotomoments ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.footer-fotomoments ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-fotomoments .social-icons a {
-    display: inline-flex;
+// ============================================================
+// 14. Galerie (filter pills + lightbox)
+// ============================================================
+.gal-filter {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin-right: 0.5rem;
-    transition: background-color 0.2s ease;
-}
-
-.footer-fotomoments .social-icons a:hover {
-    background-color: $primary;
-}
-
-.footer-fotomoments .copyright {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1.5rem;
-    margin-top: 2.5rem;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.9rem;
-}
-
-// ----- Echipa / valori -----
-.card-membru,
-.card-valoare {
-    background-color: #fff;
-    border: none;
+    gap: 0.5rem;
+    background: $neutral-0;
     border-radius: $border-radius-lg;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    height: 100%;
+    box-shadow: var(--shadow-xs);
+    padding: 0.9rem 1.25rem;
+    margin-bottom: 1.75rem;
 }
 
-.card-membru img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    background-color: #e0e0e0;
-}
-
-.card-valoare i {
-    font-size: 2.5rem;
-    color: $primary;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-// ----- Secțiuni generice -----
-section {
-    padding: 4rem 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-title h2 {
-    font-size: 2.25rem;
-    font-weight: 800;
-    color: $secondary;
-    margin-bottom: 0.75rem;
-}
-
-.section-title p {
-    font-size: 1.1rem;
-    color: lighten($secondary, 20%);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-// ----- Validare formular -----
-.invalid-feedback {
-    display: block;
-    color: $danger;
+.gal-filter .btn {
     font-size: 0.875rem;
-    margin-top: 0.25rem;
+    font-weight: 500;
+    padding: 0.35rem 0.85rem;
+    border-radius: $border-radius-pill;
+    border-width: 1.5px;
+    transition: var(--transition-fast);
 }
 
-.alert {
-    border-radius: $border-radius;
-    border: none;
-}
-
-// ----- Back to top button -----
-.btn-back-to-top {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: none;
-    background: linear-gradient(135deg, $primary 0%, lighten($primary, 12%) 100%);
-    color: #fff;
-    font-size: 1.4rem;
-    box-shadow: 0 6px 18px rgba($primary, 0.4);
-    z-index: 1030;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-    cursor: pointer;
-}
-
-.btn-back-to-top:hover {
-    transform: translateY(-2px) scale(1.05);
-}
-
-.btn-back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-// ----- Search bar (navbar) -----
-.navbar-nav form[role="search"] .form-control {
-    min-width: 180px;
-    border-radius: $border-radius;
-}
-
-@media (max-width: 991.98px) {
-    .navbar-nav form[role="search"] {
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
-    .navbar-nav form[role="search"] .form-control {
-        min-width: 0;
-        flex: 1;
-    }
-}
-
-// ----- Filtre sortare -----
-.filter-bar {
-    background-color: #fff;
-    border-radius: $border-radius-lg;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    margin-bottom: 2rem;
-}
-
-.filter-bar .form-select {
-    max-width: 240px;
-}
-
-// ----- Animații scroll reveal -----
-[data-reveal] {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-[data-reveal].is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-// Variante de direcție
-[data-reveal="left"] { transform: translateX(-24px); }
-[data-reveal="left"].is-visible { transform: translateX(0); }
-
-[data-reveal="right"] { transform: translateX(24px); }
-[data-reveal="right"].is-visible { transform: translateX(0); }
-
-// ----- Carousel hero (home) -----
-.hero-carousel {
-    border-radius: $border-radius-xl;
-    overflow: hidden;
-    margin-bottom: 3rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.hero-carousel .carousel-item {
-    min-height: 360px;
-    background-size: cover;
-    background-position: center;
-    background-color: $secondary;
-}
-
-.hero-carousel .carousel-caption {
-    background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 2rem 1rem 3rem;
-}
-
-.hero-carousel .carousel-caption h3 {
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-// ----- Newsletter form -----
-.newsletter-form .form-control {
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: #fff;
-}
-
-.newsletter-form .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.55);
-}
-
-.newsletter-form .form-control:focus {
-    background-color: rgba(255, 255, 255, 0.12);
-    border-color: lighten($primary, 10%);
-    color: #fff;
-    box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
-}
-
-// ----- Galerie (lightbox simplu) -----
 .galerie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -776,13 +868,13 @@ section {
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    background-color: #f0f0f0;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: $neutral-100;
+    transition: var(--transition-fast);
 }
 
 .galerie-item:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
 }
 
 .galerie-item img {
@@ -795,47 +887,239 @@ section {
 .galerie-item .galerie-overlay {
     position: absolute;
     inset: 0;
-    background: rgba($primary, 0.85);
+    background: rgba(0, 141, 210, 0.85);
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--duration-fast) ease;
     padding: 1rem;
+    text-align: center;
+    gap: 0.25rem;
+}
+
+.galerie-item:hover .galerie-overlay { opacity: 1; }
+
+.galerie-item .galerie-overlay i {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.galerie-item .galerie-overlay strong { font-size: 0.875rem; }
+.galerie-item .galerie-overlay small { font-size: 0.75rem; opacity: 0.85; }
+
+// Lightbox modal
+.modal-content { border: none; border-radius: $border-radius-xl; box-shadow: var(--shadow-xl); }
+.modal-header { border-bottom: 1px solid var(--border-default); }
+
+// ============================================================
+// 15. Stats (despre)
+// ============================================================
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.stats-row > div {
+    background: $neutral-0;
+    border: 1px solid var(--border-subtle);
+    border-radius: $border-radius-lg;
+    box-shadow: var(--shadow-xs);
+    padding: 1.25rem;
     text-align: center;
 }
 
-.galerie-item:hover .galerie-overlay {
-    opacity: 1;
+.stats-row strong {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: $color-brand;
+    line-height: 1;
 }
 
-.galerie-item .galerie-overlay i {
-    font-size: 2rem;
+.stats-row span {
+    font-size: 0.875rem;
+    color: $neutral-500;
+    margin-top: 0.35rem;
+    display: block;
+}
+
+@media (max-width: 767.98px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+// ============================================================
+// 16. Newsletter form
+// ============================================================
+.newsletter-form .form-control {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+.newsletter-form .form-control::placeholder { color: rgba(255, 255, 255, 0.55); }
+
+.newsletter-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: $blue-300;
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 141, 210, 0.25);
+}
+
+// ============================================================
+// 17. Footer (dark, 4 col)
+// ============================================================
+.footer-fotomoments {
+    background-color: $neutral-600;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 3.5rem 0 1.5rem;
+    margin-top: 3rem;
+}
+
+.footer-logo {
+    height: 38px;
+    width: auto;
+}
+
+.footer-fotomoments h5 {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1.1rem;
+    font-size: 1rem;
+}
+
+.footer-fotomoments p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-fotomoments a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color var(--duration-fast) ease;
+}
+
+.footer-fotomoments a:hover { color: $blue-300; }
+
+.footer-fotomoments ul { list-style: none; padding: 0; margin: 0; }
+.footer-fotomoments ul li { margin-bottom: 0.55rem; font-size: 0.875rem; }
+
+.footer-fotomoments .social-icons { display: flex; gap: 0.5rem; margin-top: 1rem; }
+
+.footer-fotomoments .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color var(--duration-fast) ease;
+}
+
+.footer-fotomoments .social-icons a:hover { background-color: $color-brand; color: #fff; }
+
+.footer-fotomoments .copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+}
+
+// ============================================================
+// 18. Back-to-top
+// ============================================================
+.btn-back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: var(--gradient-cta);
+    color: #fff;
+    font-size: 1.4rem;
+    box-shadow: var(--shadow-brand-lg);
+    z-index: 1030;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-back-to-top:hover { transform: translateY(-2px) scale(1.05); }
+.btn-back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+// ============================================================
+// 19. Animații scroll reveal
+// ============================================================
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--duration-slow, 0.6s) var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+// ============================================================
+// 20. Carousel hero
+// ============================================================
+.hero-carousel {
+    border-radius: $border-radius-xl;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-md);
+}
+
+.hero-carousel .carousel-item {
+    min-height: 360px;
+    background-size: cover;
+    background-position: center;
+    background-color: $neutral-600;
+}
+
+.hero-carousel .carousel-caption {
+    background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%);
+    left: 0; right: 0; bottom: 0;
+    padding: 2rem 1rem 3rem;
+}
+
+.hero-carousel .carousel-caption h3 {
+    color: #fff;
+    font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
-// ----- Admin panel -----
+// ============================================================
+// 21. Admin panel
+// ============================================================
 .admin-sidebar {
-    background-color: $secondary;
+    background-color: $neutral-700;
     color: #fff;
     min-height: calc(100vh - 70px);
     padding: 1.5rem 0;
 }
 
 .admin-sidebar .nav-link {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.75);
     padding: 0.75rem 1.5rem;
     border-left: 3px solid transparent;
-    transition: all 0.2s ease;
+    transition: var(--transition-fast);
 }
 
 .admin-sidebar .nav-link:hover,
 .admin-sidebar .nav-link.active {
     background-color: rgba(255, 255, 255, 0.05);
     color: #fff;
-    border-left-color: $primary;
+    border-left-color: $color-brand;
 }
 
 .admin-sidebar .nav-link i {
@@ -844,80 +1128,51 @@ section {
     text-align: center;
 }
 
-.admin-content {
-    padding: 2rem;
-}
+.admin-content { padding: 2rem; }
 
 .admin-stat-card {
-    background-color: #fff;
+    background: $neutral-0;
     border-radius: $border-radius-lg;
     padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid $primary;
+    box-shadow: var(--shadow-xs);
+    border-left: 4px solid $color-brand;
 }
 
 .admin-stat-card .stat-number {
     font-size: 2.5rem;
     font-weight: 800;
-    color: $secondary;
+    color: $neutral-900;
     line-height: 1;
 }
 
 .admin-stat-card .stat-label {
-    color: lighten($secondary, 20%);
+    color: $neutral-500;
     text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
     margin-top: 0.5rem;
 }
 
 .admin-table th {
-    background-color: lighten($secondary, 55%);
+    background-color: $neutral-100;
     font-weight: 600;
-    color: $secondary;
+    color: $neutral-700;
 }
 
-.admin-table tbody tr:hover {
-    background-color: rgba($primary, 0.04);
-}
+.admin-table tbody tr:hover { background-color: rgba(0, 141, 210, 0.04); }
 
-.admin-actions .btn {
-    padding: 0.25rem 0.5rem;
-}
+.admin-actions .btn { padding: 0.25rem 0.5rem; }
 
-// ----- Responsive helpers -----
+// ============================================================
+// 22. Responsive helpers
+// ============================================================
 @media (max-width: 767.98px) {
-    .hero {
-        padding: 4rem 0 3rem;
-        text-align: center;
-    }
-
-    .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .cta-banner {
-        padding: 2rem 1.25rem;
-    }
-
-    .cta-banner .telefon {
-        font-size: 1.75rem;
-    }
-
-    section {
-        padding: 3rem 0;
-    }
-
-    .section-title h2 {
-        font-size: 1.75rem;
-    }
+    .cta-banner { padding: 2rem 1.25rem; }
+    .cta-banner .telefon { font-size: 1.75rem; }
+    section { padding: 3rem 0; }
+    .section-title h2 { font-size: 1.75rem; }
 }
 
 @media (max-width: 575.98px) {
-    .form-contact,
-    .contact-info-card {
-        padding: 1.5rem;
-    }
+    .form-contact, .contact-info-card { padding: 1.5rem; }
 }

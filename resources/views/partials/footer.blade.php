@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-3">
-                <img src="{{ asset('img/logo.svg') }}"
+                <img src="{{ asset('img/logo-white.svg') }}"
                      alt="Infinity SRL"
                      class="footer-logo mb-3">
                 <p>
                     Imprimare personalizată de calitate pe căni, tricouri, brelocuri, perne și multe altele.
-                    Activăm din 2006 în Chișinău.
+                    Activăm din 2006 în Cahul.
                 </p>
                 <div class="social-icons mt-3">
                     <a href="#" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
@@ -32,15 +32,15 @@
                 <ul>
                     <li>
                         <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>
-                        <a href="tel:+37322123456">+373 22 123 456</a>
+                        <a href="tel:+37329912345">+373 299 12 345</a>
                     </li>
                     <li>
                         <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>
-                        <a href="mailto:contact@fotomoments.local">contact@fotomoments.local</a>
+                        <a href="mailto:contact@infinity.md">contact@infinity.md</a>
                     </li>
                     <li>
                         <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>
-                        Str. Ștefan cel Mare 100, Chișinău
+                        Str. Independenței 10, Cahul
                     </li>
                 </ul>
             </div>

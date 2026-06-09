@@ -14,7 +14,7 @@
             </nav>
 
             <h1>Galeria lucrărilor</h1>
-            <p>Exemple reale de comenzi executate de echipa Infinity pentru clienții noștri din Chișinău.</p>
+            <p>Exemple reale de comenzi executate de echipa Infinity pentru clienții noștri din Cahul.</p>
         </div>
     </section>
 

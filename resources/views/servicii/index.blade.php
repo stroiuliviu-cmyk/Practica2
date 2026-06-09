@@ -16,7 +16,7 @@
             <h1>Serviciile noastre</h1>
             <p>
                 Descoperă cele 8 categorii principale de produse personalizate pe care le oferim.
-                Toate sunt executate cu materiale premium și echipamente moderne, direct în atelierul nostru din Chișinău.
+                Toate sunt executate cu materiale premium și echipamente moderne, direct în atelierul nostru din Cahul.
             </p>
         </div>
     </section>
