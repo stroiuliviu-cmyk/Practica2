@@ -45,10 +45,10 @@
                 <div class="col-lg-5 d-none d-lg-block">
                     <div class="hero-art">
                         <div class="hero-blob"></div>
-                        <img src="{{ asset('img/placeholders/prod-cani-2.svg') }}"
+                        <img src="{{ asset('img/cani/cana-alba-330ml.jpg') }}"
                              alt="Cană personalizată"
                              class="hero-img hero-img--1">
-                        <img src="{{ asset('img/placeholders/cat-tricouri-maiouri.svg') }}"
+                        <img src="{{ asset('img/categorii/cat-tricouri-maiouri.jpg') }}"
                              alt="Tricou personalizat"
                              class="hero-img hero-img--2">
                     </div>
