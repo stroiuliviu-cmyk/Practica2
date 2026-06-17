@@ -469,7 +469,8 @@ section { padding: 4rem 0; }
 
 .card-serviciu .card-img-top {
     height: 220px;
-    object-fit: cover;
+    max-width: 100%;
+    object-fit: contain;
     background-color: $neutral-100;
 }
 
@@ -554,7 +555,8 @@ section { padding: 4rem 0; }
 
 .card-produs .card-img-top {
     height: 200px;
-    object-fit: cover;
+    max-width: 100%;
+    object-fit: contain;
     background-color: $neutral-100;
 }
 
